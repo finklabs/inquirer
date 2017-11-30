@@ -91,6 +91,7 @@ Most of the examples intend to demonstrate a single question type or feature:
 * editor.py
 * input.py
 * rawlist.py
+* modify.py - demonstrate auto completion by modifying prompt_toolkit parameters
 
 
 ### Question Types
@@ -187,6 +188,8 @@ A question is a dictionary containing question related values:
 * filter: (Function) Receive the user input and return the filtered value to be used inside the program. The value returned will be added to the Answers hash.
 * when: (Function, Boolean) Receive the current user answers hash and should return true or false depending on whether or not this question should be asked. The value can also be a simple boolean.
 * pageSize: (Number) Change the number of lines that will be rendered when using list, rawList, expand or checkbox.
+* modifyAnswers: (Function) Update kwargs being sent to prompt_toolkit.  First parameter will be the current inquirer session answers.  Function must return a dict of kwargs to update
+* modifyKwargs: (Function) Dynamically update inquirer session answers.  First parameter will be the current inquirer session answers.
 
 
 ### User Interfaces and Styles

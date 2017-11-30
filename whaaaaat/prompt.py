@@ -36,6 +36,8 @@ def prompt(questions, answers=None, **kwargs):
             message = _kwargs.pop('message')
             when = _kwargs.pop('when', None)
             filter = _kwargs.pop('filter', None)
+            modifyKwargs = _kwargs.pop('modifyKwargs', None)
+            modifyAnswers = _kwargs.pop('modifyAnswers', None)
             if when:
                 # at least a little sanity check!
                 if callable(question['when']):
@@ -58,6 +60,18 @@ def prompt(questions, answers=None, **kwargs):
             if callable(question.get('default')):
                 _kwargs['default'] = question['default'](answers)
 
+            if modifyKwargs:
+                if callable(question['modifyKwargs']):
+                    try:
+                        _kwargs.update(question['modifyKwargs'](answers))
+                    except Exception as e:
+                        raise ValueError(
+                            'Problem in \'modifyKwargs\' of %s question: %s' %
+                            (name, e))
+                else:
+                    raise ValueError('\'modifyKwargs\' needs to be function that ' \
+                                     'accepts a dict argument')
+
             application = getattr(prompts, type).question(message, **_kwargs)
 
             answer = run_application(
@@ -77,6 +91,19 @@ def prompt(questions, answers=None, **kwargs):
                             'Problem processing \'filter\' of %s question: %s' %
                             (name, e))
                 answers[name] = answer
+
+            if modifyAnswers:
+                if callable(question['modifyAnswers']):
+                    try:
+                        question['modifyAnswers'](answers)
+                    except Exception as e:
+                        raise ValueError(
+                            'Problem in \'modifyAnswers\' of %s question: %s' %
+                            (name, e))
+                else:
+                    raise ValueError('\'modifyAnswers\' needs to be function that ' \
+                                     'accepts a dict argument')
+
         except AttributeError as e:
             print(e)
             raise ValueError('No question type \'%s\'' % type)
