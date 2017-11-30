@@ -37,7 +37,7 @@ questions = [
     {
         'type': 'input',
         'name': 'first_name',
-        'message': 'What\'s your first name',
+        'message': 'What\'s your first name'
     },
     {
         'type': 'input',
