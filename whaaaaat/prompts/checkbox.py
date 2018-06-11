@@ -86,10 +86,10 @@ class InquirerControl(TokenListControl):
                         tokens.append((T.Selected, '\u25cf ', select_item))
                     else:
                         tokens.append((T, '\u25cb ', select_item))
-    
+
                     if pointed_at:
                         tokens.append((Token.SetCursorPosition, ''))
-    
+
                     tokens.append((T, line_name, select_item))
                 tokens.append((T, '\n'))
 
@@ -127,11 +127,12 @@ def question(message, **kwargs):
     style = kwargs.pop('style', default_style)
 
     ic = InquirerControl(choices)
+    qmark = kwargs.pop('qmark', '?')
 
     def get_prompt_tokens(cli):
         tokens = []
 
-        tokens.append((Token.QuestionMark, '?'))
+        tokens.append((Token.QuestionMark, qmark))
         tokens.append((Token.Question, ' %s ' % message))
         if ic.answered:
             nbr_selected = len(ic.selected_options)

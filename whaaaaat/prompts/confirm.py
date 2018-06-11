@@ -33,7 +33,7 @@ def question(message, **kwargs):
     def get_prompt_tokens(cli):
         tokens = []
 
-        tokens.append((Token.QuestionMark, '?'))
+        tokens.append((Token.QuestionMark, kwargs.pop('qmark', '?')))
         tokens.append((Token.Question, ' %s ' % message))
         if isinstance(status['answer'], bool):
             tokens.append((Token.Answer, ' Yes' if status['answer'] else ' No'))
