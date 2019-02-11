@@ -105,6 +105,8 @@ def question(message, **kwargs):
     #                     'use \'checked\':True\' in choice!')
 
     choices = kwargs.pop('choices', None)
+    qmark = kwargs.pop('qmark', '?')
+
     if len(choices) > 9:
         raise ValueError('rawlist supports only a maximum of 9 choices!')
 
@@ -117,7 +119,7 @@ def question(message, **kwargs):
         tokens = []
         T = Token
 
-        tokens.append((T.QuestionMark, '?'))
+        tokens.append((T.QuestionMark, qmark))
         tokens.append((T.Question, ' %s ' % message))
         if ic.answered:
             tokens.append((T.Answer, ' %s' % ic.get_selected_value()))
