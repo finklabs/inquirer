@@ -41,7 +41,8 @@ keys = Bunch(
     ENTER='\x0a',  # ControlJ  (Identical to '\n')
     ESCAPE='\x1b',
     CONTROLC='\x03',
-    BACK='\x7f')
+    BACK='\x7f',
+    TAB='\x09')
 
 
 style = style_from_dict({
@@ -195,7 +196,7 @@ class SimplePty(PtyProcess):
         inst.timeout = timeout  # in seconds
         return inst
 
-    def expect(self, text):
+    def expect(self, text, rstrip_chars=None):
         """Read until equals text or timeout."""
         # inspired by pexpect/pty_spawn and  pexpect/expect.py expect_loop
         end_time = time.time() + self.timeout
@@ -217,6 +218,10 @@ class SimplePty(PtyProcess):
                 # do not eat up CPU when waiting for the timeout to expire
                 time.sleep(self.timeout/10)
         #print(repr(buf))  # debug ansi code handling
+        # needed for modifyKwargs autocomplete
+        if rstrip_chars is not None:
+            buf = buf.rstrip(rstrip_chars)
+            text = text.rstrip(rstrip_chars)
         assert buf == text
 
     def expect_regex(self, pattern):
