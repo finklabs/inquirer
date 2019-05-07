@@ -7,12 +7,12 @@ A collection of common interactive command line user interfaces.
 ## Table of Contents
 
   1. [Documentation](#documentation)
-    1. [Installation](#installation)
-    2. [Examples](#examples)
-    3. [Quickstart](#quickstart)
-    4. [Question Types](#types)
-    5. [Question Properties](#properties)
-    6. [User Interfaces and Styles](#styles)
+      1. [Installation](#installation)
+      2. [Examples](#examples)
+      3. [Quickstart](#quickstart)
+      4. [Question Types](#types)
+      5. [Question Properties](#properties)
+      6. [User Interfaces and Styles](#styles)
   2. [Windows Platform](#windows)
   3. [Support](#support)
   4. [Contributing](#contributing)
