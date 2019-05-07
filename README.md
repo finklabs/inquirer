@@ -7,12 +7,12 @@ A collection of common interactive command line user interfaces.
 ## Table of Contents
 
   1. [Documentation](#documentation)
-    1. [Installation](#installation)
-    2. [Examples](#examples)
-    3. [Quickstart](#quickstart)
-    4. [Question Types](#types)
-    5. [Question Properties](#properties)
-    6. [User Interfaces and Styles](#styles)
+      1. [Installation](#installation)
+      2. [Examples](#examples)
+      3. [Quickstart](#quickstart)
+      4. [Question Types](#types)
+      5. [Question Properties](#properties)
+      6. [User Interfaces and Styles](#styles)
   2. [Windows Platform](#windows)
   3. [Support](#support)
   4. [Contributing](#contributing)
@@ -43,7 +43,7 @@ If you're searching for a scaffolding utility, then check out [banana](https://g
 ### Installation
 <a name="installation"></a>
 
-Like most Python packages whaaaaat is available on [PyPi](TODO). Simply use pip to install the whaaaaat package
+Like most Python packages whaaaaat is available on [PyPi](https://pypi.org/project/whaaaaat/). Simply use pip to install the whaaaaat package
 
 ``` shell
 pip install whaaaaat
@@ -212,9 +212,9 @@ For Windows, it's recommended to use either cmder or conemu.
 
 Most of the questions are probably related to using a question type or feature. Please lookup and study the appropriate examples.
 
-Issue on Github TODO link
+[Issue on Github](https://github.com/finklabs/whaaaaat/issues)
 
-For many issues like for example common Python programming issues stackoverflow might be a good place to search for an answer.  TODO link
+For many issues like for example common Python programming issues [Stack Overflow](https://stackoverflow.com) might be a good place to search for an answer.
 
 Visit the finklabs slack channel for announcements and news. TODO link
 
